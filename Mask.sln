@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mask", "Mask\Mask.csproj", "{8030CB37-E25E-49A2-91E5-7FA1FE247BC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config", "Config\Config.csproj", "{8965C880-2300-43A6-A2F7-65A705810619}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaskProtector", "MaskProtector\MaskProtector.csproj", "{4AC3D7F7-1EE5-4954-9342-54EA8CF25DFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{8030CB37-E25E-49A2-91E5-7FA1FE247BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8030CB37-E25E-49A2-91E5-7FA1FE247BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8030CB37-E25E-49A2-91E5-7FA1FE247BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8965C880-2300-43A6-A2F7-65A705810619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8965C880-2300-43A6-A2F7-65A705810619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8965C880-2300-43A6-A2F7-65A705810619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8965C880-2300-43A6-A2F7-65A705810619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC3D7F7-1EE5-4954-9342-54EA8CF25DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC3D7F7-1EE5-4954-9342-54EA8CF25DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC3D7F7-1EE5-4954-9342-54EA8CF25DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC3D7F7-1EE5-4954-9342-54EA8CF25DFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,13 +17,13 @@ namespace Mask
         private float FontSize;
         private float OutlineWeight = .1f;
         private List<string> ProtectedProcessList;
-        private Rectangle Screen;
+        private Rectangle Canvas;
         private int SpacingX;
         private int SpacingY;
 
-        public WatermaskForm(List<string> protectedProcessList, Rectangle screen, int column, int row, int alpha, float fontSize, int angle, float outlineWeight)
+        public WatermaskForm(Rectangle canvas)
         {
-            Init(protectedProcessList, screen, column, row, alpha, fontSize, angle, outlineWeight);
+            Canvas = canvas;
 
             _brushes = new Dictionary<string, SolidBrush>();
             _fonts = new Dictionary<string, Font>();
@@ -34,7 +34,7 @@ namespace Mask
                 PerPrimitiveAntiAliasing = true,
                 TextAntiAliasing = true
             };
-            _window = new GraphicsWindow((int)Screen.Left, (int)Screen.Top, (int)Screen.Width, (int)Screen.Height, gfx)
+            _window = new GraphicsWindow((int)Canvas.Left, (int)Canvas.Top, (int)Canvas.Width, (int)Canvas.Height, gfx)
             {
                 FPS = 1,
                 IsTopmost = true,
@@ -46,9 +46,8 @@ namespace Mask
             _window.SetupGraphics += Window_SetupGraphics;
         }
 
-        public void Init(List<string> protectedProcessList, Rectangle screen, int column, int row, int alpha, float fontSize, int angle, float outlineWeight)
+        public void Setup(List<string> protectedProcessList, int column, int row, int alpha, float fontSize, int angle, float outlineWeight)
         {
-            Screen = screen;
             Column = column;
             Row = row;
             Alpha = alpha;
@@ -88,11 +87,11 @@ namespace Mask
 
             foreach (var windowInfo in foundWindowInfoes)
             {
-                Column = (int)Math.Floor(windowInfo.Bounds.Width / textSize.X);
-                Column = Column == 0 ? 1 : Column;
+                //Column = (int)Math.Floor(windowInfo.Bounds.Width / textSize.X);
+                //Column = Column == 0 ? 1 : Column;
 
-                Row = (int)Math.Floor(windowInfo.Bounds.Height / textSize.X);
-                Row = Row == 0 ? 1 : Row;
+                //Row = (int)Math.Floor(windowInfo.Bounds.Height / textSize.X);
+                //Row = Row == 0 ? 1 : Row;
 
                 SpacingX = windowInfo.Bounds.Width / Column;
                 SpacingY = windowInfo.Bounds.Height / Row;
@@ -103,7 +102,7 @@ namespace Mask
                     {
                         var xPos = (x + .5f) * SpacingX;
                         var yPos = (y + .5f) * SpacingY;
-                        TransformationMatrix transformationMatrix = TransformationMatrix.Transformation(1, 1, Angle, xPos + windowInfo.Bounds.Left - Screen.Left, yPos + windowInfo.Bounds.Top - Screen.Top);
+                        TransformationMatrix transformationMatrix = TransformationMatrix.Transformation(1, 1, Angle, xPos + windowInfo.Bounds.Left - Canvas.Left, yPos + windowInfo.Bounds.Top - Canvas.Top);
                         gfx.TransformStart(transformationMatrix);
                         gfx.DrawTextWithBackground(_fonts["微软雅黑"], _brushes["黑色"], _brushes["透明"], -textSize.X / 2 - OutlineWeight, -textSize.Y / 2, desc);
                         gfx.DrawTextWithBackground(_fonts["微软雅黑"], _brushes["黑色"], _brushes["透明"], -textSize.X / 2 + OutlineWeight, -textSize.Y / 2, desc);
