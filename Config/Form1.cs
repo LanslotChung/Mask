@@ -16,7 +16,10 @@ namespace Config
 {
     public partial class form1 : Form
     {
+        bool isMouseDown = false;
+        Point lastMouseLocation;
         Config loadedConfig = null;
+        Form3 form3;
         private readonly static List<string> protectedProcessList = new List<string>()
         {
             "explorer"
@@ -274,7 +277,7 @@ namespace Config
             openFileDialog.Filter = "应用程序|*.exe";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string process = openFileDialog.SafeFileName.Replace(".exe", "");
+                string process = openFileDialog.SafeFileName.ToLower().Replace(".exe", "");
                 if (processList.Items.Contains(process))
                 {
                     MessageBox.Show("添加的进程已存在！");
@@ -283,6 +286,42 @@ namespace Config
                 {
                     processList.Items.Add(process);
                 }
+            }
+        }
+
+        private void form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            isMouseDown = true;
+            lastMouseLocation = e.Location;
+        }
+
+        private void form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            isMouseDown = false;
+        }
+
+        private void form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isMouseDown)
+            {
+                int deltaX = e.Location.X - lastMouseLocation.X;
+                int deltaY = e.Location.Y - lastMouseLocation.Y;
+                this.Left += deltaX;
+                this.Top += deltaY;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(form3 == null||form3.IsDisposed)
+            {
+                form3 = new Form3();
+                form3.Show();
             }
         }
     }

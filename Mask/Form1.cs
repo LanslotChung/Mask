@@ -47,19 +47,28 @@ namespace Mask
                 while (true)
                 {
                     byte[] buf = udp.Receive(ref endpoint);
-                    string config = Encoding.Default.GetString(buf);
-                    if (!string.IsNullOrEmpty(config))
+                    string recvMsg = Encoding.Default.GetString(buf);
+
+                    if (!string.IsNullOrEmpty(recvMsg))
                     {
-                        Config recvConfig = JsonConvert.DeserializeObject<Config>(config);
-                        if (recvConfig != null && recvConfig != new Config())
+                        if (recvMsg.StartsWith("password:"))
                         {
-                            if (recvConfig.Version > loadedConfig.Version)
+                            IniUtils.Write("secure", "password", recvMsg.Replace("password:", ""),
+                                Path.Combine(Application.StartupPath, "config.ini"));
+                        }
+                        else
+                        {
+                            Config recvConfig = JsonConvert.DeserializeObject<Config>(recvMsg);
+                            if (recvConfig != null && recvConfig != new Config())
                             {
-                                File.WriteAllText(jsonFile, config);
-                                form.Dispose();
-                                form = null;
-                                Application.Exit();
-                                Process.Start(Application.ExecutablePath);
+                                if (recvConfig.Version > loadedConfig.Version)
+                                {
+                                    File.WriteAllText(jsonFile, recvMsg);
+                                    form.Dispose();
+                                    form = null;
+                                    Application.Exit();
+                                    Process.Start(Application.ExecutablePath);
+                                }
                             }
                         }
                     }
@@ -88,7 +97,8 @@ namespace Mask
 
         private void RunOverlay()
         {
-            Thread thread = new Thread(() => {
+            Thread thread = new Thread(() =>
+            {
                 Rectangle canvas = new Rectangle();
                 foreach (var screen in Screen.AllScreens)
                 {

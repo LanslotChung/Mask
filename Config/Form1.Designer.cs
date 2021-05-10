@@ -49,206 +49,243 @@ namespace Config
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(91, 104);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(58, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "版本";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 28);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(91, 148);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
+            this.label2.Size = new System.Drawing.Size(154, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "受保护的程序";
             // 
             // processList
             // 
             this.processList.FormattingEnabled = true;
-            this.processList.ItemHeight = 12;
-            this.processList.Location = new System.Drawing.Point(94, 28);
-            this.processList.Margin = new System.Windows.Forms.Padding(2);
+            this.processList.ItemHeight = 24;
+            this.processList.Location = new System.Drawing.Point(267, 148);
+            this.processList.Margin = new System.Windows.Forms.Padding(4);
             this.processList.Name = "processList";
-            this.processList.Size = new System.Drawing.Size(248, 112);
+            this.processList.Size = new System.Drawing.Size(492, 220);
             this.processList.TabIndex = 2;
             // 
             // version
             // 
-            this.version.Location = new System.Drawing.Point(94, 3);
-            this.version.Margin = new System.Windows.Forms.Padding(2);
+            this.version.Location = new System.Drawing.Point(267, 98);
+            this.version.Margin = new System.Windows.Forms.Padding(4);
             this.version.Name = "version";
-            this.version.Size = new System.Drawing.Size(248, 21);
+            this.version.Size = new System.Drawing.Size(492, 35);
             this.version.TabIndex = 3;
             this.version.TextChanged += new System.EventHandler(this.version_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 173);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(91, 438);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.Size = new System.Drawing.Size(58, 24);
             this.label3.TabIndex = 4;
             this.label3.Text = "密度";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(92, 173);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(263, 438);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 12);
+            this.label4.Size = new System.Drawing.Size(34, 24);
             this.label4.TabIndex = 5;
             this.label4.Text = "行";
             // 
             // row
             // 
-            this.row.Location = new System.Drawing.Point(118, 170);
-            this.row.Margin = new System.Windows.Forms.Padding(2);
+            this.row.Location = new System.Drawing.Point(315, 432);
+            this.row.Margin = new System.Windows.Forms.Padding(4);
             this.row.Name = "row";
-            this.row.Size = new System.Drawing.Size(90, 21);
+            this.row.Size = new System.Drawing.Size(176, 35);
             this.row.TabIndex = 6;
             this.row.TextChanged += new System.EventHandler(this.row_TextChanged);
             // 
             // column
             // 
-            this.column.Location = new System.Drawing.Point(252, 170);
-            this.column.Margin = new System.Windows.Forms.Padding(2);
+            this.column.Location = new System.Drawing.Point(583, 432);
+            this.column.Margin = new System.Windows.Forms.Padding(4);
             this.column.Name = "column";
-            this.column.Size = new System.Drawing.Size(90, 21);
+            this.column.Size = new System.Drawing.Size(176, 35);
             this.column.TabIndex = 8;
             this.column.TextChanged += new System.EventHandler(this.column_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(231, 173);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(541, 438);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 12);
+            this.label5.Size = new System.Drawing.Size(34, 24);
             this.label5.TabIndex = 7;
             this.label5.Text = "列";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 199);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(91, 490);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(106, 24);
             this.label6.TabIndex = 9;
             this.label6.Text = "字体大小";
             // 
             // fontSize
             // 
-            this.fontSize.Location = new System.Drawing.Point(94, 197);
-            this.fontSize.Margin = new System.Windows.Forms.Padding(2);
+            this.fontSize.Location = new System.Drawing.Point(267, 486);
+            this.fontSize.Margin = new System.Windows.Forms.Padding(4);
             this.fontSize.Name = "fontSize";
-            this.fontSize.Size = new System.Drawing.Size(248, 21);
+            this.fontSize.Size = new System.Drawing.Size(492, 35);
             this.fontSize.TabIndex = 10;
             this.fontSize.TextChanged += new System.EventHandler(this.fontSize_TextChanged);
             // 
             // angle
             // 
-            this.angle.Location = new System.Drawing.Point(94, 272);
-            this.angle.Margin = new System.Windows.Forms.Padding(2);
+            this.angle.Location = new System.Drawing.Point(267, 636);
+            this.angle.Margin = new System.Windows.Forms.Padding(4);
             this.angle.Name = "angle";
-            this.angle.Size = new System.Drawing.Size(248, 21);
+            this.angle.Size = new System.Drawing.Size(492, 35);
             this.angle.TabIndex = 12;
             this.angle.TextChanged += new System.EventHandler(this.angle_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 274);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(91, 640);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.Size = new System.Drawing.Size(106, 24);
             this.label7.TabIndex = 11;
             this.label7.Text = "旋转角度";
             // 
             // alpha
             // 
-            this.alpha.Location = new System.Drawing.Point(94, 222);
-            this.alpha.Margin = new System.Windows.Forms.Padding(2);
+            this.alpha.Location = new System.Drawing.Point(267, 536);
+            this.alpha.Margin = new System.Windows.Forms.Padding(4);
             this.alpha.Name = "alpha";
-            this.alpha.Size = new System.Drawing.Size(248, 21);
+            this.alpha.Size = new System.Drawing.Size(492, 35);
             this.alpha.TabIndex = 15;
             this.alpha.TextChanged += new System.EventHandler(this.alpha_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 224);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(91, 540);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 12);
+            this.label8.Size = new System.Drawing.Size(130, 24);
             this.label8.TabIndex = 14;
             this.label8.Text = "字体透明度";
             // 
             // outlineWeight
             // 
-            this.outlineWeight.Location = new System.Drawing.Point(94, 247);
-            this.outlineWeight.Margin = new System.Windows.Forms.Padding(2);
+            this.outlineWeight.Location = new System.Drawing.Point(267, 586);
+            this.outlineWeight.Margin = new System.Windows.Forms.Padding(4);
             this.outlineWeight.Name = "outlineWeight";
-            this.outlineWeight.Size = new System.Drawing.Size(248, 21);
+            this.outlineWeight.Size = new System.Drawing.Size(492, 35);
             this.outlineWeight.TabIndex = 17;
             this.outlineWeight.TextChanged += new System.EventHandler(this.outlineWeight_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 249);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(91, 590);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 12);
+            this.label9.Size = new System.Drawing.Size(130, 24);
             this.label9.TabIndex = 16;
             this.label9.Text = "字体外轮廓";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(266, 142);
+            this.button1.BackColor = System.Drawing.Color.YellowGreen;
+            this.button1.Location = new System.Drawing.Point(611, 376);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(150, 46);
             this.button1.TabIndex = 18;
             this.button1.Text = "添加";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(185, 142);
+            this.button2.BackColor = System.Drawing.Color.Tomato;
+            this.button2.Location = new System.Drawing.Point(449, 376);
+            this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(150, 46);
             this.button2.TabIndex = 19;
             this.button2.Text = "删除";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(8, 298);
+            this.button3.BackColor = System.Drawing.Color.YellowGreen;
+            this.button3.ForeColor = System.Drawing.SystemColors.Window;
+            this.button3.Location = new System.Drawing.Point(95, 688);
+            this.button3.Margin = new System.Windows.Forms.Padding(6);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(334, 23);
+            this.button3.Size = new System.Drawing.Size(668, 46);
             this.button3.TabIndex = 20;
-            this.button3.Text = "保存";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Text = "保存并应用";
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Red;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(828, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(40, 40);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "X";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Crimson;
+            this.button5.ForeColor = System.Drawing.SystemColors.Window;
+            this.button5.Location = new System.Drawing.Point(95, 833);
+            this.button5.Margin = new System.Windows.Forms.Padding(6);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(668, 46);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "修改管理员密码";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 329);
+            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.ClientSize = new System.Drawing.Size(883, 907);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -269,11 +306,16 @@ namespace Config
             this.Controls.Add(this.processList);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.ForeColor = System.Drawing.SystemColors.Window;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Config";
             this.Load += new System.EventHandler(this.form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.form1_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.form1_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,6 +343,8 @@ namespace Config
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 

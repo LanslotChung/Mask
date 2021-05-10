@@ -30,41 +30,63 @@ WizardStyle=modern
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "D:\Project\Git\Mask\bin\Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\Config.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\Config.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\config.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\Config.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\GameOverlay.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\GameOverlay.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\Mask.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\Mask.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\Mask.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\MaskProtector.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\MaskProtector.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\MaskProtector.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\Newtonsoft.Json.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\SharpDX.Direct2D1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\SharpDX.Direct2D1.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\SharpDX.Direct2D1.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\SharpDX.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\SharpDX.DXGI.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\SharpDX.DXGI.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\SharpDX.DXGI.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Project\Git\Mask\bin\Debug\SharpDX.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Config.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Config.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\config.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Config.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\GameOverlay.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\GameOverlay.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Mask.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Mask.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Mask.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\MaskProtector.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\MaskProtector.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\MaskProtector.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Newtonsoft.Json.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.Direct2D1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.Direct2D1.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.Direct2D1.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.DXGI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.DXGI.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.DXGI.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.pdb"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\JSONConfig.dll"; Flags: dontcopy
 
 [registry]
 Root:HKLM;Subkey:SOFTWARE\Microsoft\Windows\CurrentVersion\Run;ValueType: string; ValueName:Mask;ValueData:{app}\Mask.exe;Flags: uninsdeletevalue
 
 [Code]
+function JSONQueryString(FileName, Section, Key, Default: WideString;
+  var Value: WideString; var ValueLength: Integer): Boolean;
+  external 'JSONQueryString@files:jsonconfig.dll stdcall';
+function JSONQueryBoolean(FileName, Section, Key: WideString; 
+  Default: Boolean; var Value: Boolean): Boolean;
+  external 'JSONQueryBoolean@files:jsonconfig.dll stdcall';
+function JSONQueryInteger(FileName, Section, Key: WideString; 
+  Default: Int64; var Value: Int64): Boolean;
+  external 'JSONQueryInteger@files:jsonconfig.dll stdcall';
+function JSONWriteString(FileName, Section, Key, 
+  Value: WideString): Boolean;
+  external 'JSONWriteString@files:jsonconfig.dll stdcall';
+function JSONWriteBoolean(FileName, Section, Key: WideString;
+  Value: Boolean): Boolean;
+  external 'JSONWriteBoolean@files:jsonconfig.dll stdcall';
+function JSONWriteInteger(FileName, Section, Key: WideString;
+  Value: Int64): Boolean;
+  external 'JSONWriteInteger@files:jsonconfig.dll stdcall';
+
 function AskPassword(): Boolean;
 var
   Form: TSetupForm;
   OKButton, CancelButton: TButton;
   PwdEdit: TPasswordEdit;
   Password:String;
+  passwordValue: WideString;
+  passwordLength: Integer;
 begin
   Result := false;
   Form := CreateCustomForm();
@@ -105,7 +127,7 @@ begin
     Form.ActiveControl := PwdEdit;
 
     Password := 'root';
-    if RegKeyExists(HKLM32, 'Software\Mask') then
+    {if RegKeyExists(HKLM32, 'Software\Mask') then
       begin
         RegQueryStringValue(HKLM32, 'Software\Mask', 'Password', Password);
       end;
@@ -115,8 +137,14 @@ begin
       begin
         RegQueryStringValue(HKLM64, 'Software\Mask', 'Password', Password);
       end;
-    end;
+    end;}
 
+    FileName := '{app}\config.json';
+    SetLength(passwordValue,16);
+    passwordLength := Length(passwordValue);
+    if JSONQueryString(FileName, 'secure', 'password', passwordValue,passwordLength)
+      Password := passwordValue;
+  then
     if Form.ShowModal() = mrOk then
     begin
       Result := PwdEdit.Text = Password;
