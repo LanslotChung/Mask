@@ -65,7 +65,7 @@ namespace Config
         private void Form2_Load(object sender, EventArgs e)
         {
 
-            password = IniUtils.Read("secure", "password", "root", 
+            password = Mask.IniUtils.Read("secure", "password", "root", 
                 Path.Combine(Application.StartupPath, "config.ini"));
             mainForm = new form1();
         }

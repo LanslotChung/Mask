@@ -18,7 +18,7 @@ namespace Config
     {
         bool isMouseDown = false;
         Point lastMouseLocation;
-        Config loadedConfig = null;
+        Mask.Config loadedConfig = null;
         Form3 form3;
         private readonly static List<string> protectedProcessList = new List<string>()
         {
@@ -34,12 +34,12 @@ namespace Config
         {
             if (File.Exists(jsonFile))
             {
-                loadedConfig = JsonConvert.DeserializeObject<Config>(File.ReadAllText(jsonFile));
+                loadedConfig = JsonConvert.DeserializeObject<Mask.Config>(File.ReadAllText(jsonFile));
             }
 
-            if (loadedConfig == null || loadedConfig.Equals(new Config()))
+            if (loadedConfig == null || loadedConfig.Equals(new Mask.Config()))
             {
-                loadedConfig = new Config();
+                loadedConfig = new Mask.Config();
                 loadedConfig.Version = -1;
                 loadedConfig.ProcessList = protectedProcessList;
                 loadedConfig.Column = 3;
@@ -48,6 +48,14 @@ namespace Config
                 loadedConfig.FontSize = 14;
                 loadedConfig.Angle = 30;
                 loadedConfig.OutlineWeight = .5f;
+                loadedConfig.IsShowComputerName = false;
+                loadedConfig.IsShowIPAddr = true;
+                loadedConfig.IsShowMacAddr = true;
+                loadedConfig.IsShowLoginUser = false;
+                loadedConfig.IsShowQrCode = true;
+                loadedConfig.QrCodeAlpha = 50;
+                loadedConfig.QrCodePos = 0;
+                loadedConfig.QrCodeSize = 100;
                 File.WriteAllText(jsonFile, JsonConvert.SerializeObject(loadedConfig));
             }
             version.Text = loadedConfig.Version.ToString();
@@ -61,12 +69,21 @@ namespace Config
             fontSize.Text = loadedConfig.FontSize.ToString();
             angle.Text = loadedConfig.Angle.ToString();
             outlineWeight.Text = loadedConfig.OutlineWeight.ToString();
+            showCpuName.Checked = loadedConfig.IsShowComputerName;
+            showIpAddr.Checked = loadedConfig.IsShowIPAddr;
+            showLoginUser.Checked = loadedConfig.IsShowLoginUser;
+            showMacAddr.Checked = loadedConfig.IsShowMacAddr;
+            showQrCode.Checked = loadedConfig.IsShowQrCode;
+            qrCodeAlpha.Text = loadedConfig.QrCodeAlpha.ToString();
+            qrCodePos.SelectedIndex = loadedConfig.QrCodePos;
+            deltaTime.Text = loadedConfig.ChangePosDeltaTime.ToString();
+            qrCodeSize.Text = loadedConfig.QrCodeSize.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             bool containError = false;
-            Config newConfig = new Config();
+            Mask.Config newConfig = new Mask.Config();
             if (int.TryParse(version.Text, out int _version))
             {
                 newConfig.Version = _version;
@@ -148,6 +165,50 @@ namespace Config
                     }
                     newConfig.ProcessList.Add(process);
                 }
+            }
+
+            if(!(showCpuName.Checked || showIpAddr.Checked || showMacAddr.Checked || showLoginUser.Checked))
+            {
+                containError = true;
+                MessageBox.Show("显示的文字至少需要勾选一个！");
+                return;
+            }
+            else
+            {
+                newConfig.IsShowQrCode = showQrCode.Checked;
+                newConfig.IsShowComputerName = showCpuName.Checked;
+                newConfig.IsShowIPAddr = showIpAddr.Checked;
+                newConfig.IsShowLoginUser = showLoginUser.Checked;
+                newConfig.IsShowMacAddr = showMacAddr.Checked;
+            }
+            newConfig.IsShowQrCode = showQrCode.Checked;
+            newConfig.QrCodePos = qrCodePos.SelectedIndex;
+            if (int.TryParse(qrCodeAlpha.Text, out int _qrCodeAlpha))
+            {
+                newConfig.QrCodeAlpha = _qrCodeAlpha;
+            }
+            else
+            {
+                containError = true;
+                qrCodeAlpha.BackColor = Color.IndianRed;
+            }
+            if (int.TryParse(qrCodeSize.Text, out int _qrCodeSize))
+            {
+                newConfig.QrCodeSize = _qrCodeSize;
+            }
+            else
+            {
+                containError = true;
+                qrCodeSize.BackColor = Color.IndianRed;
+            }
+            if (int.TryParse(deltaTime.Text, out int _deltaTime))
+            {
+                newConfig.ChangePosDeltaTime = _deltaTime;
+            }
+            else
+            {
+                containError = true;
+                deltaTime.BackColor = Color.IndianRed;
             }
             if (containError)
             {

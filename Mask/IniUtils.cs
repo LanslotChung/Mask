@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mask
 {
-    class IniUtils
+    public class IniUtils
     {
         [DllImport("kernel32")]
         private static extern int GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, int nSize, string lpFileName);

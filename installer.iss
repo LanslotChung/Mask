@@ -53,40 +53,19 @@ Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.DXGI.dll"; DestDir: 
 Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.DXGI.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.DXGI.xml"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\config.ini"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\JSONConfig.dll"; Flags: dontcopy
 
 [registry]
 Root:HKLM;Subkey:SOFTWARE\Microsoft\Windows\CurrentVersion\Run;ValueType: string; ValueName:Mask;ValueData:{app}\Mask.exe;Flags: uninsdeletevalue
 
 [Code]
-function JSONQueryString(FileName, Section, Key, Default: WideString;
-  var Value: WideString; var ValueLength: Integer): Boolean;
-  external 'JSONQueryString@files:jsonconfig.dll stdcall';
-function JSONQueryBoolean(FileName, Section, Key: WideString; 
-  Default: Boolean; var Value: Boolean): Boolean;
-  external 'JSONQueryBoolean@files:jsonconfig.dll stdcall';
-function JSONQueryInteger(FileName, Section, Key: WideString; 
-  Default: Int64; var Value: Int64): Boolean;
-  external 'JSONQueryInteger@files:jsonconfig.dll stdcall';
-function JSONWriteString(FileName, Section, Key, 
-  Value: WideString): Boolean;
-  external 'JSONWriteString@files:jsonconfig.dll stdcall';
-function JSONWriteBoolean(FileName, Section, Key: WideString;
-  Value: Boolean): Boolean;
-  external 'JSONWriteBoolean@files:jsonconfig.dll stdcall';
-function JSONWriteInteger(FileName, Section, Key: WideString;
-  Value: Int64): Boolean;
-  external 'JSONWriteInteger@files:jsonconfig.dll stdcall';
-
 function AskPassword(): Boolean;
 var
   Form: TSetupForm;
   OKButton, CancelButton: TButton;
   PwdEdit: TPasswordEdit;
-  Password:String;
-  passwordValue: WideString;
-  passwordLength: Integer;
+  Password: String;
 begin
   Result := false;
   Form := CreateCustomForm();
@@ -126,25 +105,21 @@ begin
 
     Form.ActiveControl := PwdEdit;
 
-    Password := 'root';
-    {if RegKeyExists(HKLM32, 'Software\Mask') then
-      begin
-        RegQueryStringValue(HKLM32, 'Software\Mask', 'Password', Password);
-      end;
-    if IsWin64 then
-    begin
-      if RegKeyExists(HKLM64, 'Software\Mask') then
-      begin
-        RegQueryStringValue(HKLM64, 'Software\Mask', 'Password', Password);
-      end;
-    end;}
+    Password := 'Root';
+    //if RegKeyExists(HKLM32, 'Software\Mask') then
+    //  begin
+    //    RegQueryStringValue(HKLM32, 'Software\Mask', 'Password', Password);
+    //  end;
+    //if IsWin64 then
+    //begin
+    //  if RegKeyExists(HKLM64, 'Software\Mask') then
+    //  begin
+    //    RegQueryStringValue(HKLM64, 'Software\Mask', 'Password', Password);
+    //  end;
+    //end;
 
-    FileName := '{app}\config.json';
-    SetLength(passwordValue,16);
-    passwordLength := Length(passwordValue);
-    if JSONQueryString(FileName, 'secure', 'password', passwordValue,passwordLength)
-      Password := passwordValue;
-  then
+    Password := GetIniString('secure','password','Root',ExpandConstant('{app}\config.ini'));
+    
     if Form.ShowModal() = mrOk then
     begin
       Result := PwdEdit.Text = Password;

@@ -80,19 +80,19 @@ namespace Mask
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Process[] processList = Process.GetProcesses();
-            bool isFound = false;
-            foreach (Process process in processList)
-            {
-                if (process.ProcessName == "MaskProtector")
-                {
-                    isFound = true;
-                }
-            }
-            if (!isFound)
-            {
-                Process.Start(Path.Combine(Application.StartupPath, "MaskProtector.exe"));
-            }
+            //Process[] processList = Process.GetProcesses();
+            //bool isFound = false;
+            //foreach (Process process in processList)
+            //{
+            //    if (process.ProcessName == "MaskProtector")
+            //    {
+            //        isFound = true;
+            //    }
+            //}
+            //if (!isFound)
+            //{
+            //    Process.Start(Path.Combine(Application.StartupPath, "MaskProtector.exe"));
+            //}
         }
 
         private void RunOverlay()
@@ -108,7 +108,7 @@ namespace Mask
                     canvas.Top = Math.Min(screen.Bounds.Top, canvas.Top);
                 }
                 form = new WatermaskForm(canvas);
-                form.Setup(loadedConfig.ProcessList, loadedConfig.Column, loadedConfig.Row, loadedConfig.Alpha, loadedConfig.FontSize, loadedConfig.Angle, loadedConfig.OutlineWeight);
+                form.Setup(loadedConfig);
                 form.Run();
             });
             thread.IsBackground = true;

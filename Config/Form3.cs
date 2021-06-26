@@ -62,7 +62,7 @@ namespace Config
             }
             newPassword1.BackColor = Color.White;
 
-            IniUtils.Write("secure", "password", newPassword.Text,
+            Mask.IniUtils.Write("secure", "password", newPassword.Text,
                 Path.Combine(Application.StartupPath, "config.ini"));
             password = newPassword.Text;
             MessageBox.Show("修改成功！");
@@ -82,7 +82,7 @@ namespace Config
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            password = IniUtils.Read("secure", "password", "root",
+            password = Mask.IniUtils.Read("secure", "password", "root",
                 Path.Combine(Application.StartupPath, "config.ini"));
         }
 
