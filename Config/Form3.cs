@@ -16,6 +16,7 @@ namespace Config
 {
     public partial class Form3 : Form
     {
+        public static string IniFile = Path.Combine(Application.StartupPath, "config.ini");
         private bool isMouseDown;
         private Point lastMouseLocation;
         private string password;
@@ -62,8 +63,7 @@ namespace Config
             }
             newPassword1.BackColor = Color.White;
 
-            Mask.IniUtils.Write("secure", "password", newPassword.Text,
-                Path.Combine(Application.StartupPath, "config.ini"));
+            Mask.IniUtils.Write("secure", "password", newPassword.Text,IniFile);
             password = newPassword.Text;
             MessageBox.Show("修改成功！");
             oldPassword.Text = "";
@@ -82,8 +82,13 @@ namespace Config
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            password = Mask.IniUtils.Read("secure", "password", "root",
-                Path.Combine(Application.StartupPath, "config.ini"));
+            if (!File.Exists(IniFile))
+            {
+                File.WriteAllText(IniFile,
+                    @"[secure]
+password=root");
+            }
+            password = Mask.IniUtils.Read("secure", "password", "root", IniFile);
         }
 
         private void button2_Click(object sender, EventArgs e)

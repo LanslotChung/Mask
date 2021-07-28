@@ -64,9 +64,13 @@ namespace Config
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
-            password = Mask.IniUtils.Read("secure", "password", "root", 
-                Path.Combine(Application.StartupPath, "config.ini"));
+            if (!File.Exists(Config.Form3.IniFile))
+            {
+                File.WriteAllText(Config.Form3.IniFile,
+                    @"[secure]
+password=root");
+            }
+            password = Mask.IniUtils.Read("secure", "password", "root",Config.Form3.IniFile);
             mainForm = new form1();
         }
 

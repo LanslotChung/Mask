@@ -20,7 +20,7 @@ DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=C:\Users\Lanslot\OneDrive\×ÀÃæ
+OutputDir=C:\Users\exLan\OneDrive\Projects\Mask
 OutputBaseFilename=MaskInstaller
 Compression=lzma
 SolidCompression=yes
@@ -30,30 +30,34 @@ WizardStyle=modern
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Config.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Config.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\config.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Config.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\GameOverlay.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\GameOverlay.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Mask.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Mask.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Mask.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\MaskProtector.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\MaskProtector.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\MaskProtector.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\Newtonsoft.Json.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.Direct2D1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.Direct2D1.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.Direct2D1.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.DXGI.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.DXGI.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.DXGI.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\SharpDX.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Lanslot\vsProjects\Mask\bin\Debug\config.ini"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\Config.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\Config.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\config.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\Config.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\GameOverlay.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\GameOverlay.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\Mask.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\Mask.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\Mask.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\MaskProtector.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\MaskProtector.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\MaskProtector.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\Newtonsoft.Json.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\SharpDX.Direct2D1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\SharpDX.Direct2D1.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\SharpDX.Direct2D1.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\SharpDX.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\SharpDX.DXGI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\SharpDX.DXGI.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\SharpDX.DXGI.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\SharpDX.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\config.ini"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\zxing.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\zxing.presentation.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\zxing.presentation.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\exLan\OneDrive\Projects\Mask\bin\Debug\zxing.xml"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [registry]

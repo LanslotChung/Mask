@@ -22,7 +22,11 @@ namespace Config
         Form3 form3;
         private readonly static List<string> protectedProcessList = new List<string>()
         {
-            "explorer"
+           "winword",
+            "excel",
+            "powerpnt",
+            "chrome",
+            "msedge"
         };
         private readonly static string jsonFile = Path.Combine(Application.StartupPath, "config.json");
         public form1()
@@ -167,7 +171,7 @@ namespace Config
                 }
             }
 
-            if(!(showCpuName.Checked || showIpAddr.Checked || showMacAddr.Checked || showLoginUser.Checked))
+            if (!(showCpuName.Checked || showIpAddr.Checked || showMacAddr.Checked || showLoginUser.Checked))
             {
                 containError = true;
                 MessageBox.Show("显示的文字至少需要勾选一个！");
@@ -218,7 +222,7 @@ namespace Config
             string configJson = JsonConvert.SerializeObject(newConfig);
             if (loadedConfig.Version >= newConfig.Version)
             {
-                if(MessageBox.Show("检查到版本小于或等于本地配置，该配置仅在本机生效，可以吗？","提示",MessageBoxButtons.YesNo)
+                if (MessageBox.Show("检查到版本小于或等于本地配置，该配置仅在本机生效，可以吗？", "提示", MessageBoxButtons.YesNo)
                     == DialogResult.Yes)
                 {
                     File.WriteAllText(jsonFile, configJson);
@@ -231,7 +235,7 @@ namespace Config
                 MessageBox.Show("将要发送并应用配置到所有计算机！", "提示");
                 SendBroadcast(configJson);
             }
-            
+
         }
 
         private void SendBroadcast(string msg)
@@ -239,7 +243,7 @@ namespace Config
             UdpClient udp = new UdpClient(new IPEndPoint(IPAddress.Any, 0));
             IPEndPoint endPoint = new IPEndPoint(IPAddress.Broadcast, 12345);
             byte[] buff = Encoding.Default.GetBytes(msg);
-            udp.Send(buff,buff.Length,endPoint);
+            udp.Send(buff, buff.Length, endPoint);
         }
 
         private void version_TextChanged(object sender, EventArgs e)
@@ -379,7 +383,7 @@ namespace Config
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if(form3 == null||form3.IsDisposed)
+            if (form3 == null || form3.IsDisposed)
             {
                 form3 = new Form3();
                 form3.Show();

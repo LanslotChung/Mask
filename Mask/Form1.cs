@@ -16,7 +16,11 @@ namespace Mask
     {
         private readonly static List<string> protectedProcessList = new List<string>()
         {
-            "explorer"
+            "winword",
+            "excel",
+            "powerpnt",
+            "chrome",
+            "msedge"
         };
 
         private readonly static string jsonFile = Path.Combine(Application.StartupPath, "config.json");
