@@ -32,6 +32,7 @@ namespace Mask
         public Form1()
         {
             InitializeComponent();
+            timer1.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,12 +48,11 @@ namespace Mask
             Thread thread = new Thread(() =>
             {
                 UdpClient udp = new UdpClient(new IPEndPoint(IPAddress.Any, 12345));
-                IPEndPoint endpoint = new IPEndPoint(IPAddress.Any, 0);
+                IPEndPoint anyEndpoint = new IPEndPoint(IPAddress.Any, 0);
                 while (true)
                 {
-                    byte[] buf = udp.Receive(ref endpoint);
-                    string recvMsg = Encoding.Default.GetString(buf);
-
+                    byte[] anyBuf = udp.Receive(ref anyEndpoint);
+                    string recvMsg = Encoding.Default.GetString(anyBuf);
                     if (!string.IsNullOrEmpty(recvMsg))
                     {
                         if (recvMsg.StartsWith("password:"))
@@ -65,14 +65,11 @@ namespace Mask
                             Config recvConfig = JsonConvert.DeserializeObject<Config>(recvMsg);
                             if (recvConfig != null && recvConfig != new Config())
                             {
-                                if (recvConfig.Version > loadedConfig.Version)
-                                {
                                     File.WriteAllText(jsonFile, recvMsg);
                                     form.Dispose();
                                     form = null;
                                     Application.Exit();
                                     Process.Start(Application.ExecutablePath);
-                                }
                             }
                         }
                     }
@@ -84,19 +81,19 @@ namespace Mask
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //Process[] processList = Process.GetProcesses();
-            //bool isFound = false;
-            //foreach (Process process in processList)
-            //{
-            //    if (process.ProcessName == "MaskProtector")
-            //    {
-            //        isFound = true;
-            //    }
-            //}
-            //if (!isFound)
-            //{
-            //    Process.Start(Path.Combine(Application.StartupPath, "MaskProtector.exe"));
-            //}
+            Process[] processList = Process.GetProcesses();
+            bool isFound = false;
+            foreach (Process process in processList)
+            {
+                if (process.ProcessName == "MaskProtector")
+                {
+                    isFound = true;
+                }
+            }
+            if (!isFound)
+            {
+                Process.Start(Path.Combine(Application.StartupPath, "MaskProtector.exe"));
+            }
         }
 
         private void RunOverlay()
@@ -129,7 +126,6 @@ namespace Mask
             if (loadedConfig == null || loadedConfig.Equals(new Config()))
             {
                 loadedConfig = new Config();
-                loadedConfig.Version = -1;
                 loadedConfig.ProcessList = protectedProcessList;
                 loadedConfig.Column = 3;
                 loadedConfig.Row = 3;

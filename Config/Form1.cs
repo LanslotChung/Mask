@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +18,17 @@ namespace Config
 {
     public partial class form1 : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
+
         bool isMouseDown = false;
         Point lastMouseLocation;
         Mask.Config loadedConfig = null;
@@ -32,6 +45,7 @@ namespace Config
         public form1()
         {
             InitializeComponent();
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
         private void form1_Load(object sender, EventArgs e)
@@ -44,7 +58,6 @@ namespace Config
             if (loadedConfig == null || loadedConfig.Equals(new Mask.Config()))
             {
                 loadedConfig = new Mask.Config();
-                loadedConfig.Version = -1;
                 loadedConfig.ProcessList = protectedProcessList;
                 loadedConfig.Column = 3;
                 loadedConfig.Row = 3;
@@ -62,7 +75,6 @@ namespace Config
                 loadedConfig.QrCodeSize = 100;
                 File.WriteAllText(jsonFile, JsonConvert.SerializeObject(loadedConfig));
             }
-            version.Text = loadedConfig.Version.ToString();
             foreach (var process in loadedConfig.ProcessList)
             {
                 processList.Items.Add(process);
@@ -88,15 +100,6 @@ namespace Config
         {
             bool containError = false;
             Mask.Config newConfig = new Mask.Config();
-            if (int.TryParse(version.Text, out int _version))
-            {
-                newConfig.Version = _version;
-            }
-            else
-            {
-                containError = true;
-                version.BackColor = Color.IndianRed;
-            }
             if (int.TryParse(column.Text, out int _column))
             {
                 newConfig.Column = _column;
@@ -220,42 +223,19 @@ namespace Config
                 return;
             }
             string configJson = JsonConvert.SerializeObject(newConfig);
-            if (loadedConfig.Version >= newConfig.Version)
-            {
-                if (MessageBox.Show("检查到版本小于或等于本地配置，该配置仅在本机生效，可以吗？", "提示", MessageBoxButtons.YesNo)
-                    == DialogResult.Yes)
-                {
-                    File.WriteAllText(jsonFile, configJson);
-                }
-            }
-            else
-            {
-                loadedConfig = newConfig;
-                File.WriteAllText(jsonFile, configJson);
-                MessageBox.Show("将要发送并应用配置到所有计算机！", "提示");
-                SendBroadcast(configJson);
-            }
+            loadedConfig = newConfig;
+            File.WriteAllText(jsonFile, configJson);
+            MessageBox.Show("将要发送并应用配置到所有计算机！", "提示");
+            SendMessage(configJson, IPAddress.Broadcast);
 
         }
 
-        private void SendBroadcast(string msg)
+        private void SendMessage(string msg, IPAddress ipa)
         {
             UdpClient udp = new UdpClient(new IPEndPoint(IPAddress.Any, 0));
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Broadcast, 12345);
+            IPEndPoint endPoint = new IPEndPoint(ipa, 12345);
             byte[] buff = Encoding.Default.GetBytes(msg);
             udp.Send(buff, buff.Length, endPoint);
-        }
-
-        private void version_TextChanged(object sender, EventArgs e)
-        {
-            if (!int.TryParse(version.Text, out int _value))
-            {
-                version.BackColor = Color.IndianRed;
-            }
-            else
-            {
-                version.BackColor = Color.White;
-            }
         }
 
         private void row_TextChanged(object sender, EventArgs e)

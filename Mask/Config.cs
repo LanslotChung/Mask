@@ -8,7 +8,6 @@ namespace Mask
 {
     public class Config
     {
-        public int Version { get; set; }
         public List<string> ProcessList { get; set; }
         public int Column { get; set; }
         public int Row { get; set; }
@@ -30,9 +29,8 @@ namespace Mask
         {
         }
 
-        public Config(int version, List<string> processList, int column, int row, int alpha, int fontSize, int angle, float outlineWeight, bool isShowComputerName, bool isShowMacAddr, bool isShowIPAddr, bool isShowLoginUser, bool isShowQrCode, int qrCodePos, int qrCodeAlpha, int qrCodeSize, int changePosDeltaTime)
+        public Config(List<string> processList, int column, int row, int alpha, int fontSize, int angle, float outlineWeight, bool isShowComputerName, bool isShowMacAddr, bool isShowIPAddr, bool isShowLoginUser, bool isShowQrCode, int qrCodePos, int qrCodeAlpha, int qrCodeSize, int changePosDeltaTime)
         {
-            Version = version;
             ProcessList = processList;
             Column = column;
             Row = row;
@@ -54,7 +52,6 @@ namespace Mask
         public override bool Equals(object obj)
         {
             return obj is Config config &&
-                   Version == config.Version &&
                    EqualityComparer<List<string>>.Default.Equals(ProcessList, config.ProcessList) &&
                    Column == config.Column &&
                    Row == config.Row &&
@@ -76,7 +73,6 @@ namespace Mask
         public override int GetHashCode()
         {
             int hashCode = 1133365354;
-            hashCode = hashCode * -1521134295 + Version.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<List<string>>.Default.GetHashCode(ProcessList);
             hashCode = hashCode * -1521134295 + Column.GetHashCode();
             hashCode = hashCode * -1521134295 + Row.GetHashCode();

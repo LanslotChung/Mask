@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,16 @@ namespace Config
 {
     public partial class Form3 : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+           (
+               int nLeftRect,     // x-coordinate of upper-left corner
+               int nTopRect,      // y-coordinate of upper-left corner
+               int nRightRect,    // x-coordinate of lower-right corner
+               int nBottomRect,   // y-coordinate of lower-right corner
+               int nWidthEllipse, // width of ellipse
+               int nHeightEllipse // height of ellipse
+           );
         public static string IniFile = Path.Combine(Application.StartupPath, "config.ini");
         private bool isMouseDown;
         private Point lastMouseLocation;
@@ -24,6 +35,7 @@ namespace Config
         public Form3()
         {
             InitializeComponent();
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
         private void Form3_MouseDown(object sender, MouseEventArgs e)
